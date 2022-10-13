@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: three-sleeps-on-the-job-parallelism
+spec:
+  completions: 3
+  parallelism: 2
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: three-sleeps-on-the-job-parallelism
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: sleep-container
+          image: busybox
+          args:
+            - sleep
+            - "60"

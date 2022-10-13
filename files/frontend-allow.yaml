@@ -1,0 +1,14 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: frontend-allow
+spec:
+  podSelector:
+    matchLabels:
+      app: customers
+      role: frontend
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: customers

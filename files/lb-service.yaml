@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: web-frontend
+  labels:
+    app.kubernetes.io/name: web-frontend
+spec:
+  type: LoadBalancer
+  selector:
+    app.kubernetes.io/name: web-frontend
+  ports:
+    - port: 80
+      name: http
+      targetPort: 3000

@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-example
+spec:
+  rules:
+    - host: example.com
+      http:
+        paths:
+          - path: /blog
+            backend:
+              service:
+                name: my-blog-service
+                port:
+                  number: 5000
+          - path: /music
+            backend:
+              service:
+                name: my-music-service
+                port:
+                  number: 8080

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: empty-dir-pod
+spec:
+  containers:
+    - name: alpine
+      image: alpine
+      args:
+        - sleep
+        - "120"
+      volumeMounts:
+        - name: pod-storage
+          mountPath: /data/
+  volumes:
+    - name: pod-storage
+      emptyDir: {}

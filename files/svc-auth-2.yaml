@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: service-auth-2
+  namespace: default
+stringData:
+  username: ricky
+data:
+  password: SUxPVkVQSVpaQTI=

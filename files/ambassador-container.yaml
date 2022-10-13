@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: themoviedb
+spec:
+  containers:
+    - name: main
+      image: radial/busyboxplus:curl
+      args:
+        - sleep
+        - "600"
+    - name: ambassador
+      image: startkubernetes/ambassador:0.1.0
+      env:
+        - name: API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: themoviedb
+              key: apikey
+      ports:
+        - name: http
+          containerPort: 8080

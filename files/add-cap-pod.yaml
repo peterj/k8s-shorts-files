@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-pod
+  labels:
+    app.kubernetes.io/name: hello
+spec:
+  containers:
+    - name: hello-container
+      image: debian
+      command: ["sh", "-c", "sleep 3600"]
+      securityContext:
+        capabilities:
+          add:
+            - NET_BIND_SERVICE

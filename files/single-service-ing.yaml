@@ -1,0 +1,12 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: ambassador
+  name: my-ingress
+spec:
+  defaultBackend:
+    service:
+      name: hello-world
+      port:
+        number: 3000

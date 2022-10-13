@@ -1,0 +1,10 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: my-ingress
+  annotations:
+    kubernetes.io/ingress.class: ambassador
+spec:
+  backend:
+    serviceName: dogpic-service
+    servicePort: 3000

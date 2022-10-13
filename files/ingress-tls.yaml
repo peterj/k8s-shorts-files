@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: my-ingress
+  annotations:
+    kubernetes.io/ingress.class: ambassador
+spec:
+  tls:
+    - hosts:
+        - dogs.startkubernetes.com
+      secretName: ambassador-certs
+  rules:
+    - host: dogs.startkubernetes.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: dogpic-service
+              servicePort: 3000

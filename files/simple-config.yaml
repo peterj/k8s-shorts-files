@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: simple-config
+  namespace: default
+data:
+  portNumber: "8080"
+  name: Ricky
+  settings.env: |
+    someVariable=5
+    anotherName=blah

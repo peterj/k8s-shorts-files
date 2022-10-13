@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: stray-pod
+  labels:
+    app.kubernetes.io/name: hello
+spec:
+  containers:
+    - name: stray-pod-container
+      image: busybox
+      command: ["sh", "-c", "echo Hello from stray pod! && sleep 3600"]
