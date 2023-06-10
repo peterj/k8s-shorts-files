@@ -1,0 +1,9 @@
+apiVersion: k8s.startkubernetes.com/v1
+kind: PdfDocument
+metadata:
+    name: my-document
+spec:
+    documentName: my-text
+    text: |
+        ### This is a title
+        Here is some **BOLD** text
